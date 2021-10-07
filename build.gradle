@@ -65,7 +65,9 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
     implementation("org.springframework.boot:spring-boot-starter-activemq:2.5.4")
-	implementation 'org.openjdk.nashorn:nashorn-core:15.1'
+	if(JavaVersion.current() >= 15){
+		implementation 'org.openjdk.nashorn:nashorn-core:15.1'
+	}
 }
 configurations {
 	all {
