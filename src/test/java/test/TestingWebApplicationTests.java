@@ -32,6 +32,10 @@ public class TestingWebApplicationTests {
     	jscode = "var Date = java.util.Date; var a = new Date().toString(); a;";
     	result = ScriptExecutor.runcode(jscode);
     	assertThat(result).isEqualTo(datestr);
+    	jscode = "var C = Java.type('com.fyhao.springwebapps.business.CustomService'); ";
+    	jscode += "var a = new C(); var b = a.add(1,2); '' + b;";
+    	result = ScriptExecutor.runcode(jscode);
+    	assertThat(result).isEqualTo("3");
 	}
     
 }
