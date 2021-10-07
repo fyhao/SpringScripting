@@ -75,5 +75,5 @@ configurations {
 	}
 }
 test {
-useJUnitPlatform()
+	useJUnitPlatform()
 }
