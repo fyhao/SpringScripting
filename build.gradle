@@ -71,3 +71,6 @@ configurations {
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
 	}
 }
+test {
+useJUnitPlatform()
+}
