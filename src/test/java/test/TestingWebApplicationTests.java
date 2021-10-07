@@ -28,6 +28,10 @@ public class TestingWebApplicationTests {
     	String jscode = "var a = '1'; a;";
     	String result = ScriptExecutor.runcode(jscode);
     	assertThat(result).isEqualTo("1");
+    	String datestr = new java.util.Date().toString();
+    	jscode = "var Date = java.util.Date; var a = new Date().toString(); a;";
+    	result = ScriptExecutor.runcode(jscode);
+    	assertThat(result).isEqualTo(datestr);
 	}
     
 }
