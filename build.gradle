@@ -64,7 +64,7 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test:2.5.5') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-    implementation("org.springframework.boot:spring-boot-starter-activemq:2.5.4")
+    implementation("org.springframework.boot:spring-boot-starter-activemq:2.5.5")
 	if(JavaVersion.current() == JavaVersion.VERSION_15){
 		implementation 'org.openjdk.nashorn:nashorn-core:15.1'
 	}
