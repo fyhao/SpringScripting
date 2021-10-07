@@ -24,6 +24,6 @@ public class TestingWebApplicationTests {
     
     @Test
 	public void firstTest() throws Exception {
-		assertThat("Test").contains("Test1");
+		assertThat("Test").contains("Test2");
 	}
 }
