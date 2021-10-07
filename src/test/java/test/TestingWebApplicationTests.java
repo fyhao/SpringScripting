@@ -11,6 +11,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 
 import com.fyhao.springwebapps.SpringWebMain;
+import com.fyhao.springwebapps.business.CustomService;
 import com.fyhao.springwebapps.business.ScriptExecutor;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = SpringWebMain.class)
 public class TestingWebApplicationTests {
@@ -36,6 +37,10 @@ public class TestingWebApplicationTests {
     	jscode += "var a = new C(); var b = a.add(1,2); '' + b;";
     	result = ScriptExecutor.runcode(jscode);
     	assertThat(result).isEqualTo("3");
+    	jscode = "var C = Java.type('com.fyhao.springwebapps.business.CustomService'); ";
+    	jscode += "C.c++; 'e'; ";
+    	ScriptExecutor.runcode(jscode);
+    	assertThat(1).isEqualTo(CustomService.c);
 	}
     
 }
