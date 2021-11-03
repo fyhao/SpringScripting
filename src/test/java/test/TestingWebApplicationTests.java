@@ -51,7 +51,7 @@ public class TestingWebApplicationTests {
     	String[] arr = result.split("\\|");
     	assertThat(arr[0]).isEqualTo(arr[1]);
 		result = ScriptExecutor.runcodeResource("test2.js");
-		assertThat(result).isEqualTo("fail");
+		assertThat(result).isEqualTo("fail1");
 	}
     
 }

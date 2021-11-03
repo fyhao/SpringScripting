@@ -13,10 +13,13 @@ public class CustomService {
 	public String connectdb() {
 		try {
 	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        return "ok1";
 	        } 
 	    catch(Exception ex) {
 	        System.out.println("MySQL driver couldn't be loaded!");
+	        return "fail1";
 	        }
+		/*
 	    try {
 	        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/mysql",
 	                                       "root","rootpw");
@@ -27,5 +30,6 @@ public class CustomService {
 	        e.printStackTrace();
 	        return "fail";
 	    }
+	    */
 	}
 }
