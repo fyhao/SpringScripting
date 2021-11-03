@@ -50,9 +50,8 @@ public class TestingWebApplicationTests {
     	result = ScriptExecutor.runcodeResource("test1.js");
     	String[] arr = result.split("\\|");
     	assertThat(arr[0]).isEqualTo(arr[1]);
-		assertThat(System.getProperty("DB_DATABASE")).isEqualTo("mysql");
 		result = ScriptExecutor.runcodeResource("test2.js");
-		assertThat(result).isEqualTo(System.getProperty("DB_DATABASE"));
+		
 	}
     
 }
