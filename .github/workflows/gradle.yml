@@ -18,9 +18,9 @@ jobs:
         image: mysql:5.7
         env:
           MYSQL_ROOT_PASSWORD: ${{ env.DB_PASS }}
-          MYSQL_DATABASE: ${{ env.DB_DATABSE }}
-          ports: 
-            - "33306:3306"
+          MYSQL_DATABASE: ${{ env.DB_DATABASE }}
+        ports: 
+          - "33306:3306"
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK ${{ matrix.java }}
