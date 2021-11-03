@@ -36,7 +36,7 @@ jobs:
           DB_PORT: ${{ env.DB_PORT }}
           DB_USER: root
           DB_PASSWORD: ${{ env.DB_PASS }}
-        run: ./gradlew test
+        run: ./gradlew test --verbose --debug
       - name: Build with Gradle
         run: ./gradlew build
       - name: generateLicenseReport with Gradle
