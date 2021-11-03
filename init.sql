@@ -1,3 +1,3 @@
-create database testuser (
+create table testuser (
   username varchar(255)
 );
