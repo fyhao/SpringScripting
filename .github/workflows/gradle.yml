@@ -1,7 +1,10 @@
 name: "Validate SAST DEP"
 on: [push, pull_request]
 
-
+env:
+  DB_PASS: rootpw
+  DB_DATABASE: mysql
+  DB_PORT: 33306
   
 jobs:
   validation:
@@ -14,9 +17,9 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: mysql
-        ports: ['3306:3306']
+          MYSQL_ROOT_PASSWORD: ${{ env.DB_PASS }}
+          MYSQL_DATABASE: ${{ env.DB_DATABSE }}
+        ports: ['${{ env.DB_PORT }}:3306']
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK ${{ matrix.java }}
@@ -26,6 +29,12 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: test with Gradle
+        env:
+          DB_CONNECTION: mysql
+          DB_DATABASE: ${{ env.DB_DATABASE }}
+          DB_PORT: ${{ env.DB_PORT }}
+          DB_USER: root
+          DB_PASSWORD: ${{ env.DB_PASS }}
         run: ./gradlew test
       - name: Build with Gradle
         run: ./gradlew build
