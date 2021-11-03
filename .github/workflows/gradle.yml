@@ -1,6 +1,8 @@
 name: "Validate SAST DEP"
 on: [push, pull_request]
 
+
+  
 jobs:
   validation:
     name: "Validation"
@@ -8,6 +10,13 @@ jobs:
     strategy:
       matrix:
         java: [11,14,15,16]
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: mysql
+        ports: ['3306:3306']
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK ${{ matrix.java }}
