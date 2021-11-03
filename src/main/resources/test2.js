@@ -1,2 +1,7 @@
 var System = java.lang.System;
-System.getProperty('DB_DATABASE');
+
+var CustomService = Java.type('com.fyhao.springwebapps.business.CustomService');
+
+var result = CustomService.connectdb();
+
+result;
