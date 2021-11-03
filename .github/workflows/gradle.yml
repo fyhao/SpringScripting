@@ -32,7 +32,7 @@ jobs:
       - name: Seed DB
         run: |
           sudo systemctl start mysql
-          mysql -u root -prootpw --port 33306 --database=mysql < init.sql
+          mysql -h 127.0.0.1 -u root -prootpw --port 33306 --database=mysql < init.sql
       - name: test with Gradle
         env:
           DB_CONNECTION: mysql
