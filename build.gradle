@@ -67,7 +67,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-activemq:2.6.6")
 	if(JavaVersion.current() == JavaVersion.VERSION_15
 		|| JavaVersion.current() == JavaVersion.VERSION_16){
-		implementation 'org.openjdk.nashorn:nashorn-core:15.3'
+		implementation 'org.openjdk.nashorn:nashorn-core:15.4'
 	}
 }
 configurations {
