@@ -4,11 +4,12 @@ on: [push, pull_request]
 jobs:
   validation:
     name: "Validation"
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         java: [11,14,15,16,17]
         distribution: ['zulu']
+        os : ['ubuntu-latest','windows-latest','macos-latest']
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK ${{ matrix.java }} Distribution ${{ matrix.distribution }}
@@ -30,16 +31,6 @@ jobs:
         with:
           name: licenseDependencyReport
           path: build/reports
-      - uses: gradle/wrapper-validation-action@v1
-      - name: Self dep-scan
-        uses: AppThreat/dep-scan-action@master
-        env:
-          VULNDB_HOME: ${{ github.workspace }}/db
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}:[]
-      - uses: actions/upload-artifact@v1
-        with:
-          name: reports
-          path: reports 
        
      
          
