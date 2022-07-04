@@ -31,11 +31,6 @@ jobs:
         with:
           name: licenseDependencyReport
           path: build/reports
-      - uses: gradle/wrapper-validation-action@v1
-      - uses: actions/upload-artifact@v1
-        with:
-          name: reports
-          path: reports 
        
      
          
