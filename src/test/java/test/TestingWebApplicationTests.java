@@ -35,8 +35,8 @@ public class TestingWebApplicationTests {
     	String jscode = "var a = '1'; a;";
     	String result = ScriptExecutor.runcode(jscode);
     	assertThat(result).isEqualTo("1");
-    	String datestr = new java.util.Date().toString();
-    	jscode = "var Date = java.util.Date; var a = new Date().toString(); a;";
+    	String datestr = new java.util.Date().toString().substring(0,4);
+    	jscode = "var Date = java.util.Date; var a = new Date().toString().substring(0,4); a;";
     	result = ScriptExecutor.runcode(jscode);
     	assertThat(result).isEqualTo(datestr);
     	jscode = "var C = Java.type('com.fyhao.springwebapps.business.CustomService'); ";
