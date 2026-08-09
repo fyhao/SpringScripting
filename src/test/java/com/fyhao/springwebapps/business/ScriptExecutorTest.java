@@ -41,8 +41,10 @@ class ScriptExecutorTest {
             String endpoint = "http://127.0.0.1:" + server.getAddress().getPort() + "/message";
             String script = "var Scanner = Java.type('java.util.Scanner');"
                     + "var stream = new java.net.URL(endpoint).openStream();"
-                    + "try { new Scanner(stream, 'UTF-8').useDelimiter('\\\\A').next(); }"
-                    + "finally { stream.close(); }";
+                    + "var response;"
+                    + "try { response = new Scanner(stream, 'UTF-8').useDelimiter('\\\\A').next(); }"
+                    + "finally { stream.close(); }"
+                    + "response;";
 
             Object result = ScriptExecutor.evaluate(script, Collections.singletonMap("endpoint", endpoint));
 
