@@ -4,7 +4,7 @@ var File = java.io.File;
 var PrintWriter = java.io.PrintWriter;
 var BufferedWriter = java.io.BufferedWriter;
 var FileWriter = java.io.FileWriter;
-var filename = "test.txt";
+var filename = java.nio.file.Files.createTempFile("spring-scripting-", ".txt").toFile().getAbsolutePath();
 var str = Math.random() + "d";
 var pw = new PrintWriter(new BufferedWriter(new FileWriter(new File(filename))));
 pw.println(str);

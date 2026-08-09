@@ -55,6 +55,8 @@ dependencies {
     implementation group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '4.0.1'
     implementation group: 'javax.activation', name: 'activation', version: '1.1.1'
     implementation group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: '10.1.2'
+    implementation 'org.openjdk.nashorn:nashorn-core:15.4'
+    runtimeOnly 'com.mysql:mysql-connector-j:8.4.0'
     implementation("org.springframework.boot:spring-boot-starter-websocket:2.7.5")
     implementation("org.webjars:webjars-locator-core")
     implementation("org.webjars:sockjs-client:1.5.1")
@@ -65,11 +67,6 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
     implementation("org.springframework.boot:spring-boot-starter-activemq:2.7.9")
-	if(JavaVersion.current() == JavaVersion.VERSION_15
-		|| JavaVersion.current() == JavaVersion.VERSION_16
-        || JavaVersion.current() == JavaVersion.VERSION_17){
-		implementation 'org.openjdk.nashorn:nashorn-core:15.4'
-	}
 }
 configurations {
 	all {
